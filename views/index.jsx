@@ -9,12 +9,15 @@ function Index({ breads }) {
       {/* This is a JSX comment. */}
       <ul>
         {breads.map((bread, index) => {
-          return <li></li>;
+          return (
+            <li key={index}>
+              <a href={`/breads/${index}`}>{bread.name}</a>
+            </li>
+          );
         })}
       </ul>
     </Default>
   );
 }
-
 
 module.exports = Index;
