@@ -1,7 +1,7 @@
 const React = require("react");
 const Default = require("./layouts/default");
 
-function New() {
+function New({ bakers }) {
   return (
     <Default>
       <h2>Add a new bread</h2>
@@ -16,6 +16,16 @@ function New() {
           pattern="^(https?:\/\/).*"
           title="Please provide a valid image link starting with http or https"
         />
+        <label htmlFor="baker">Baker</label>
+        <select name="baker" id="baker">
+          {bakers.map((baker) => {
+            return (
+              <option value={baker.id} key={baker.id}>
+                {baker.name}
+              </option>
+            );
+          })}
+        </select>
         <label htmlFor="hasGluten">Has Gluten?</label>
         <input type="checkbox" name="hasGluten" id="hasGluten" defaultChecked />
         <br />
@@ -31,4 +41,3 @@ function New() {
 }
 
 module.exports = New;
-
